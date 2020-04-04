@@ -1,0 +1,28 @@
+<h1> API Rick & Morty <h1>
+<h3> Nombre: <%= @location['name'] %> <h3>
+<h3> Tipo: <%= @location['type'] %> <h3>
+<h3> Dimensión: <%= @location['dimension'] %> <h3>
+
+<style type="text/css">
+    .tg  {border-collapse:collapse;border-spacing:0;border-color:#9ABAD9;}
+    .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#9ABAD9;color:#444;background-color:#EBF5FF;}
+    .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#9ABAD9;color:#fff;background-color:#409cff;}
+    .tg .tg-hmp3{background-color:#D2E4FC;text-align:center;vertical-align:top}
+    .tg .tg-6nwz{font-size:14px;text-align:center;vertical-align:top}
+</style>
+<table class="tg">
+    <tr>
+        <th class="tg-6nwz">Residentes</th>
+    </tr>
+    <% if @location['residents'].length != 0%>
+        <% @residents.each do |resident| %>
+        <tr>
+            <td class="tg-hmp3"><%= link_to resident['name'], '/characters/' + resident['id'].to_s %></td>
+        <%end %>
+        </tr>
+    <% else %>
+        <tr>
+            <td class="tg-hmp3">No hay residentes</td>
+        </tr>
+    <% end %>
+</table>

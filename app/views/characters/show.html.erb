@@ -1,0 +1,33 @@
+<h1> API Rick & Morty <h1>
+
+<%= image_tag(@character['image']) %>
+
+<h3> Nombre: <%= @character['name'] %> <h3>
+<h3> Estado: <%= @character['status'] %> <h3>
+<h3> Especie: <%= @character['species'] %> <h3>
+<h3> Género: <%= @character['gender'] %> <h3>
+<% if @character['origin']['name'] != 'unknown' %>
+    <h3> Lugar de origen: <%= link_to @character['origin']['name'] ,'/locations/' + @character['origin']['url'].split('/').last.to_s %> <h3>
+<% else %>
+    <h3> Lugar de origen: <%= @character['origin']['name'] %> <h3>
+<% end %>
+
+<style type="text/css">
+    .tg  {border-collapse:collapse;border-spacing:0;border-color:#9ABAD9;}
+    .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#9ABAD9;color:#444;background-color:#EBF5FF;}
+    .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#9ABAD9;color:#fff;background-color:#409cff;}
+    .tg .tg-hmp3{background-color:#D2E4FC;text-align:center;vertical-align:top}
+    .tg .tg-6nwz{font-size:14px;text-align:center;vertical-align:top}
+</style>
+<table class="tg">
+    <tr>
+        <th class="tg-6nwz">Episodios</th>
+    </tr>
+  
+    <% @episodes.each do |episode| %>
+    <tr>
+        <td class="tg-hmp3"><%= link_to episode['name'], '/episodes/' + episode['id'].to_s %></td>
+    <%end %>
+    </tr>
+
+</table>
