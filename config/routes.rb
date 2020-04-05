@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   get '/episodes/:id', to: 'episodes#show', as: 'episode'
   get '/characters/:id', to: 'characters#show', as: 'character'
   get '/locations/:id', to: 'locations#show', as: 'location'
+  get '/searches', to: 'searches#show'
 end

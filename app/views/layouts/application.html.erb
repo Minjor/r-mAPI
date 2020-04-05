@@ -10,6 +10,18 @@
   </head>
 
   <body>
+    <h1> API Search Rick & Morty <h1>
+
+    <h2> 
+    <%= form_tag( searches_path, method: :get) do %>
+      <%= text_field_tag :keyword, nil %>
+      <%= content_tag :button, type: :submit do %>
+        Search
+      <% end %>
+    <% end %>
+    <h2>
+
     <%= yield %>
+
   </body>
 </html>
